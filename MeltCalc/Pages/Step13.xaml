@@ -1,0 +1,56 @@
+﻿<Page x:Class="MeltCalc.Pages.Step13"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Model="clr-namespace:MeltCalc.Model"
+	  mc:Ignorable="d" 
+	  d:DesignHeight="249" d:DesignWidth="540" Title="Step12" 
+	  WindowTitle="Шаг3: Выбор рассчитываемого шлакообразующего" 
+	  Margin="{DynamicResource GroupboxMargin}" Width="540" Height="250">
+	<Page.Resources>
+		 
+		<Thickness x:Key="checkboxframe">15,5,5,5</Thickness>
+		<Thickness x:Key="topcheckboxframe">15,25,5,5</Thickness>
+		 
+	</Page.Resources>
+	<Page.CommandBindings>
+		<CommandBinding Command="NextPage" CanExecute="CommandBindingCanExecute" Executed="CommandBindingExecuted"/>
+		<CommandBinding Command="PreviousPage" CanExecute="CommandBindingCanPrevious" Executed="CommandBindingPreviousPage"/>
+	</Page.CommandBindings>
+
+
+	<Grid>
+		<GroupBox Header="Выберите рассчитываемый шлакообразующий материал"/>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="0.815*"/>
+				<RowDefinition Height="0.185*"/>
+			</Grid.RowDefinitions>
+			<Grid x:Name="_grid">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<StackPanel>
+					<RadioButton Content="Известь" Margin="{DynamicResource topcheckboxframe}" IsChecked="True" Tag="{x:Static Model:Materials.Известь}" />
+					<RadioButton Content="Известняк" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Известняк}"/>
+					<RadioButton Content="Доломит" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Доломит}"/>
+					<RadioButton Content="Сырой доломит" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.ВлажныйДоломит}"/>
+					<RadioButton Content="Известково-магнитный флюс (ИМФ)" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.ИзвестковоМагнитныйФлюс}"/>
+					<RadioButton Content="Кокс" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Кокс}"/>
+				</StackPanel>
+				<StackPanel Grid.Column="1" Margin="{DynamicResource GroupboxMargin}">
+					<RadioButton Content="Песок" Margin="{DynamicResource topcheckboxframe}" Tag="{x:Static Model:Materials.Песок}"/>
+					<RadioButton Content="Окатыши" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Окатыши}"/>
+					<RadioButton Content="Руда" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Руда}"/>
+					<RadioButton Content="Окалина" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Окалина}"/>
+					<RadioButton Content="Агломерат" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.Агломерат}"/>
+					<RadioButton Content="Плавиковый шпат" Margin="{DynamicResource checkboxframe}" Tag="{x:Static Model:Materials.ПлавиковыйШпат}"/>
+				</StackPanel>
+			</Grid>
+			<Button Content="Назад ..." HorizontalAlignment="Left" Width="200" Grid.Row="1" Command="NavigationCommands.PreviousPage" Height="32.82" VerticalAlignment="Bottom" Margin="{DynamicResource ButtonMargin}" />
+			<Button Content="Далее ..." HorizontalAlignment="Right" Width="200" Grid.Row="1" Command="NavigationCommands.NextPage" Height="32.82" VerticalAlignment="Bottom" d:LayoutOverrides="GridBox" Margin="{DynamicResource ButtonMargin}" />
+		</Grid>
+		
+	</Grid>
+</Page>

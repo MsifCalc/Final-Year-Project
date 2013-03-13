@@ -1,0 +1,39 @@
+﻿<Page x:Class="MeltCalc.Pages.Step1"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  mc:Ignorable="d" 
+	  d:DesignHeight="255" d:DesignWidth="480" Title="OxyCharge 7" Width="584" Height="Auto" MinHeight="255" MinWidth="584" WindowTitle="Выбор варианта расчета">
+	<Page.CommandBindings>
+		<CommandBinding Command="NextPage" CanExecute="NextCanExecute" Executed="NextExecuted"/>
+	</Page.CommandBindings>
+
+	<Page.Resources>
+		<Thickness x:Key="Thickness">25,20,0,0</Thickness>
+		<Thickness x:Key="Padding">20,0,0,0</Thickness>
+	</Page.Resources>
+
+	<Grid>
+		<GroupBox Header="Выберите один из перечисленных вариантов расчета" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="{DynamicResource GroupboxMargin}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.536*"/>
+					<ColumnDefinition Width="0.464*"/>
+				</Grid.ColumnDefinitions>
+				<StackPanel VerticalAlignment="Top" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,30,0,0">
+					<RadioButton x:Name="_option1" Content="Расчет соотношения чугуна и лома при фиксированной массе полупродукта" Margin="{DynamicResource Thickness}" Padding="{DynamicResource Padding}" IsChecked="True"/>
+					<RadioButton x:Name="_option2" Content="Расчет необходимой массы чугуна при фиксированной массе лома" Margin="{DynamicResource Thickness}" Padding="{DynamicResource Padding}"/>
+					<RadioButton x:Name="_option3" Content="Расчет массы теплоносителя или охладителя, дополнительно подаваемого в агрегат" Margin="{DynamicResource Thickness}" Padding="{DynamicResource Padding}"/>
+					<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="при фиксированной массе чугуна и лома." Margin="57,2,0,0"/>
+				</StackPanel>
+				<Button Content="Далее..." Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" Height="35" Grid.Row="1" Command="NavigationCommands.NextPage" Margin="0,0,8,8" />
+			</Grid>
+		</GroupBox>
+		
+	</Grid>
+</Page>

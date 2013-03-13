@@ -1,0 +1,154 @@
+﻿<Page x:Class="MeltCalc.Pages.Step11"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  mc:Ignorable="d" 
+	  d:DesignHeight="532.167" d:DesignWidth="704.667" Title="Step11" 
+	  WindowTitle=" Шаг 1. Предварительные операции, ввод данных о процессе" 
+	  Width="700" Height="580"
+	  DataContext="{Binding Source={StaticResource Tube}}">
+	
+	<Page.CommandBindings>
+		<CommandBinding Command="NextPage" CanExecute="NextCanExecute" Executed="NextExecuted"/>
+		<CommandBinding Command="PreviousPage" CanExecute="PrevCanPrevious" Executed="PrevExecuted"/>
+	</Page.CommandBindings>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.267*"/>
+			<RowDefinition Height="0.135*"/>
+			<RowDefinition Height="0.332*"/>
+			<RowDefinition Height="0.187*"/>
+			<RowDefinition Height="0.079*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		
+		<GroupBox Grid.Row="0" Header="Выбор способа ввода исходной информации" Padding="{DynamicResource GroupboxMargin}">
+			<GroupBox.Margin>
+				<Thickness>5,5,5,0</Thickness>
+			</GroupBox.Margin>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="43.054"/>
+					<RowDefinition Height="0.568*"/>
+					<RowDefinition Height="0.432*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.349*"/>
+					<ColumnDefinition Width="0.651*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Row="0" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="При автоматическом способе ввода большая часть информации о процессе извлекается из базы данных, в случае выбора самостоятельного способа эту информацию можно просмотреть и изменить вручную" Margin="0,5,0,0"/>
+				<StackPanel Grid.Row="1" VerticalAlignment="Bottom" Orientation="Vertical">
+					<TextBlock Text="Выберите предприятие" Margin="0,0,0,5"/>
+					<ComboBox x:Name="_plantNames"/>
+				</StackPanel>
+				<CheckBox x:Name="_isDuplex" Grid.Row="2" Content="Расчет 1 периода дуплекса-процесса" VerticalAlignment="Center"/>
+				<RadioButton Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="15,0,0,0"/>
+				<TextBlock Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="Автоматический ввод исходных данных по наименованию предприятия  (рекомендуется при проведении стандартных плавок)" Margin="40,0,0,0" VerticalAlignment="Center"/>
+				<RadioButton x:Name="_isManual" Grid.Column="1" Grid.Row="2" Content="Ручной ввод исходной информации об агрегате" Padding="8,0,0,0" VerticalAlignment="Center" Margin="15,0,0,0"/>
+			</Grid>
+		</GroupBox>
+
+		<GroupBox Grid.Row="1" Header="Температура окружающей среды" Padding="{DynamicResource GroupboxMargin}">
+			<GroupBox.Margin>
+				<Thickness>5,5,5,0</Thickness>
+			</GroupBox.Margin>
+			<Grid Margin="0,2,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.25*"/>
+					<ColumnDefinition Width="0.106*"/>
+					<ColumnDefinition Width="0.06*"/>
+					<ColumnDefinition Width="0.584*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="Введите температуру воздуха С" HorizontalAlignment="Left"/>
+				<ComboBox x:Name="_tempAir" Grid.Column="1" HorizontalAlignment="Left" Width="60" VerticalAlignment="Top" Margin="6,0,0,0"/>
+				<TextBlock Text="град С" HorizontalAlignment="Left" Grid.Column="2" Margin="4,0,0,0"/>
+				<TextBlock Text="Эта величина необходима для корректного учета температуры лома и подаваемых сыпучих материалов" TextWrapping="Wrap" d:LayoutOverrides="Width" Grid.Column="3" Margin="10,0,0,0"/>
+			</Grid>
+		</GroupBox>
+		<GroupBox Grid.Row="2" Header="Некоторые технологические данные о процессе" Padding="{DynamicResource GroupboxMargin}">
+			<GroupBox.Margin>
+				<Thickness>5,5,5,0</Thickness>
+			</GroupBox.Margin>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.358*"/>
+					<ColumnDefinition Width="0.291*"/>
+					<ColumnDefinition Width="0.351*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="Средняя длительность продувки" VerticalAlignment="Center" Margin="{DynamicResource GroupboxMargin}"/>
+				<TextBlock Text="Донная продувка инертным газом" Grid.Row="1" Margin="{DynamicResource GroupboxMargin}" VerticalAlignment="Center"/>
+				<TextBlock Text="Выберите тип применяемой на конвертере футеровки" Grid.Row="2" Margin="{DynamicResource GroupboxMargin}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+				<TextBlock Text="Средняя стойкость футеровки конвертера" Grid.Row="3" Margin="{DynamicResource GroupboxMargin}" VerticalAlignment="Center" TextWrapping="Wrap"/>
+				<ComboBox x:Name="_timeProduv" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="109" Margin="5,0,0,0"/>
+				<TextBlock Text="мин" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,50,0"/>
+				<RadioButton x:Name="_isAirUsed" GroupName="usegroup" Content="Используется" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="5,0,0,3"/>
+				<RadioButton IsChecked="True" GroupName="usegroup" Content="Не используется" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" Margin="5,3,0,0"/>
+				<Grid Grid.RowSpan="4" Grid.Column="2">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="0.554*"/>
+							<RowDefinition Height="0.234*"/>
+							<RowDefinition Height="0.212*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition/>
+							<ColumnDefinition/>
+						</Grid.ColumnDefinitions>
+						<Grid Grid.ColumnSpan="2">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="0.443*"/>
+								<RowDefinition Height="0.22*"/>
+								<RowDefinition Height="0.337*"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+								<ColumnDefinition/>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<TextBox IsEnabled="False" x:Name="_o2" Grid.Row="2" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" Margin="{DynamicResource GroupboxMargin}"/>
+							<TextBox x:Name="_ar" Grid.Row="2" TextWrapping="Wrap" Margin="{DynamicResource GroupboxMargin}" d:LayoutOverrides="Width, Height" Grid.Column="1" TextChanged="OnArChanged"/>
+							<TextBox x:Name="_n2" Grid.Row="2" TextWrapping="Wrap" Margin="{DynamicResource GroupboxMargin}" d:LayoutOverrides="Width, Height" Grid.Column="2" TextChanged="OnN2Changed"/>
+							<TextBlock Grid.Row="1" TextWrapping="Wrap" Text="{}{O2} %" d:LayoutOverrides="Height" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,2"/>
+							<TextBlock Grid.Row="1" TextWrapping="Wrap" Text="{}{Ar} %" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,2" Grid.Column="1"/>
+							<TextBlock Grid.Row="1" TextWrapping="Wrap" Text="{}{N2} %" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,2" Grid.Column="2"/>				
+						</Grid>
+						<ComboBox x:Name="_futType" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" Margin="5,0" SelectionChanged="FutTypeChanged"/>
+						<ComboBox x:Name="_numPlavok" VerticalAlignment="Center" Grid.Row="2" Margin="5,0,34,0"/>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="плавок" VerticalAlignment="Center" Grid.Row="2" Margin="88,0,0,0" Grid.ColumnSpan="2"/>
+					</Grid>
+				</Grid>
+			</Grid>
+		</GroupBox>
+
+		<GroupBox Grid.Row="3" Header="Адаптация системы расчета шихты" Margin="{DynamicResource GroupboxMargin}" Padding="{DynamicResource GroupboxMargin}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<CheckBox x:Name="_isAdaptValues" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="8,0,0,0"></CheckBox>
+				<TextBlock TextWrapping="Wrap" Text="Произвести адаптацию системы расчета шихты на процесс" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="29,0,0,0"/>
+				<TextBlock TextWrapping="Wrap" Text="Данную операцию желательно производить 1 раз в 100 плавок для идентификации ряда величин, характеризующих процесс, которые оказывают значительное влияние на результаты расчета" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+			</Grid>
+		</GroupBox>
+		<Button Content="Назад ..." HorizontalAlignment="Left" Width="200" Grid.Row="4" Command="NavigationCommands.PreviousPage" Margin="{DynamicResource ButtonMargin}" />
+		<Button Content="Далее ..." HorizontalAlignment="Right" Width="200" Grid.Row="4" Command="NavigationCommands.NextPage" Grid.Column="1" >
+			<Button.Margin>
+				<Thickness>5,5,5,8</Thickness>
+			</Button.Margin>
+		</Button>
+	</Grid>
+</Page>

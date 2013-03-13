@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MeltCalc.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LooseMdb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">loose.mdb</Value>
+    </Setting>
+    <Setting Name="DatabaseRelativePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">..\..\Database</Value>
+    </Setting>
+    <Setting Name="ParamsMdb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">params.mdb</Value>
+    </Setting>
+    <Setting Name="TeploPhisConstsMdb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TeploPhisConsts.mdb</Value>
+    </Setting>
+    <Setting Name="MelpMdb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">meltdata.mdb</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

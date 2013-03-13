@@ -1,0 +1,147 @@
+﻿<Page x:Class="MeltCalc.Pages.Results"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+	  mc:Ignorable="d" 
+	  d:DesignHeight="650.5" d:DesignWidth="1008.35"
+	Title="Results" Width="800">
+
+	<Grid Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.203*"/>
+			<RowDefinition Height="0.368*"/>
+			<RowDefinition Height="0.143*"/>
+			<RowDefinition Height="0.187*"/>
+			<RowDefinition Height="0.099*"/>
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+		  <GroupBox Header="Масса чугуна, т" Margin="0,0,10,0">
+				<TextBox x:Name="_massChugun" TextWrapping="Wrap" Text="0.0" Margin="5,20" FontSize="26.667" />
+		  </GroupBox>
+		  <GroupBox Header="Масса лома, т" Grid.Column="1" Margin="0,0,10,0">
+				<TextBox x:Name="_massLlom" TextWrapping="Wrap" Text="0.0" Margin="5,20" FontSize="26.667" />
+		  </GroupBox>
+		  <GroupBox Header="Объем кислорода, нм3" Grid.Column="2">
+				<TextBox  x:Name="_oxygenVolume" TextWrapping="Wrap" Text="0.0" Margin="5,20" FontSize="26.667" />
+		  </GroupBox>
+		</Grid>
+
+		<GroupBox Header="Сыпучие материалы, т" Grid.Row="1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<TextBox x:Name="_izv" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0"/>
+				<TextBox x:Name="_izk" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Grid.Row="1" Margin="0,5,0,0"/>
+				<TextBox x:Name="_dol" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Grid.Row="2" Margin="0,5,0,0"/>
+				<TextBox x:Name="_vldol" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Grid.Row="3" Margin="0,5,0,0"/>
+				<TextBox x:Name="_imf" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Grid.Row="4" Margin="0,5,0,0"/>
+				<TextBox x:Name="_koks" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Grid.Row="5" Margin="0,5,0,0"/>
+				<TextBox x:Name="_pesok" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0" Grid.Column="2"/>
+				<TextBox x:Name="_okat" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0" Grid.Column="2" Grid.Row="1"/>
+				<TextBox x:Name="_ruda" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0" Grid.Column="2" Grid.Row="2"/>
+				<TextBox x:Name="_okal" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0" Grid.Row="3" Grid.Column="2"/>
+				<TextBox x:Name="_agl" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0" Grid.Row="4" Grid.Column="2"/>
+				<TextBox x:Name="_shp" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Height" Margin="0,5,0,0" Grid.Row="5" Grid.Column="2"/>
+				<TextBlock TextWrapping="Wrap" Text="Известь" Grid.Column="1" Margin="5,0" VerticalAlignment="Center"/>
+				<TextBlock TextWrapping="Wrap" Text="Известняк" Grid.Column="1" Margin="5,0" VerticalAlignment="Center" Grid.Row="1"/>
+				<TextBlock TextWrapping="Wrap" Text="Доломит" Grid.Column="1" Margin="5,0" VerticalAlignment="Center" Grid.Row="2"/>
+				<TextBlock TextWrapping="Wrap" Text="Сырой доломит" Grid.Column="1" Margin="5,0" VerticalAlignment="Center" Grid.Row="3"/>
+				<TextBlock TextWrapping="Wrap" Text="Известково-магниитный флюс" Grid.Column="1" Margin="5,0" VerticalAlignment="Center" Grid.Row="4"/>
+				<TextBlock TextWrapping="Wrap" Text="Кокс" Grid.Column="1" Margin="5,0" VerticalAlignment="Center" Grid.Row="5"/>
+				<TextBlock TextWrapping="Wrap" Text="Песок" Grid.Column="3" Margin="5,0" VerticalAlignment="Center"/>
+				<TextBlock TextWrapping="Wrap" Text="Окатыши" Grid.Column="3" Margin="5,0" VerticalAlignment="Center" Grid.Row="1"/>
+				<TextBlock TextWrapping="Wrap" Text="Руда" Grid.Column="3" Margin="5,0" VerticalAlignment="Center" Grid.Row="2"/>
+				<TextBlock TextWrapping="Wrap" Text="Окалина" Grid.Column="3" Margin="5,0" VerticalAlignment="Center" Grid.Row="3"/>
+				<TextBlock TextWrapping="Wrap" Text="Агломерат" Grid.Column="3" Margin="5,0" VerticalAlignment="Center" Grid.Row="4"/>
+				<TextBlock TextWrapping="Wrap" Text="Плавиковый шпат" Grid.Column="3" Margin="5,0" VerticalAlignment="Center" Grid.Row="5"/>
+			</Grid>
+		</GroupBox>
+		<GroupBox Grid.Row="2" Header="Шлак">
+			<Grid Margin="0,0,0,5">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="0.587*"/>
+					<RowDefinition Height="0.413*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<TextBlock TextWrapping="Wrap" Text="Основность шлака" VerticalAlignment="Center" d:LayoutOverrides="Width" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock TextWrapping="Wrap" Text="Масса, т" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="1" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock TextWrapping="Wrap" Text="(FeO) общ, %" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="2" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock TextWrapping="Wrap" Text="(CaO) %" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="3" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock TextWrapping="Wrap" Text="(MgO) %" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="4" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock TextWrapping="Wrap" Text="(MnO) %" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="5" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock TextWrapping="Wrap" Text="(P2O5) %" VerticalAlignment="Center" d:LayoutOverrides="Width" Grid.Column="6" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBox x:Name="_osnovnost" TextWrapping="Wrap" Text="0.0" d:LayoutOverrides="Width, Height" Grid.Row="1" Margin="0,0,5,0"/>
+				<TextBox x:Name="_massa" TextWrapping="Wrap" Text="0.0" Margin="0,0,5,0" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="1"/>
+				<TextBox x:Name="_feo" TextWrapping="Wrap" Text="0.0" Margin="0,0,5,0" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="2"/>
+				<TextBox x:Name="_cao" TextWrapping="Wrap" Text="0.0" Margin="0,0,5,0" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="3"/>
+				<TextBox x:Name="_mgo" TextWrapping="Wrap" Text="0.0" Margin="0,0,5,0" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="4"/>
+				<TextBox x:Name="_mno" TextWrapping="Wrap" Text="0.0" Margin="0,0,5,0" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="5"/>
+				<TextBox x:Name="_p2o5" TextWrapping="Wrap" Text="0.0" Margin="0" d:LayoutOverrides="Width, Height" Grid.Row="1" Grid.Column="6"/>
+			</Grid>
+		</GroupBox>
+		<GroupBox Grid.Row="3" Header="Сталь, состав %">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="[C]" VerticalAlignment="Center" TextAlignment="Center" Margin="0,0,0,5"/>
+				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="[Si]" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1" Margin="0,0,0,5"/>
+				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="[Mn]" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="2" Margin="0,0,0,5"/>
+				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="[P]" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="3" Margin="0,0,0,5"/>
+				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="[S]" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="4" Margin="0,0,0,5"/>
+				<TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Температура, С" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="5" Margin="0,0,0,5"/>
+				<TextBox x:Name="_c" TextWrapping="Wrap" Text="0.0" Grid.Row="1" Margin="0,0,5,0"/>
+				<TextBox x:Name="_si" TextWrapping="Wrap" Text="0.0" Grid.Row="1" Margin="0,0,5,0" Grid.Column="1"/>
+				<TextBox x:Name="_mn" TextWrapping="Wrap" Text="0.0" Grid.Row="1" Margin="0,0,5,0" Grid.Column="2"/>
+				<TextBox x:Name="_p" TextWrapping="Wrap" Text="0.0" Grid.Row="1" Margin="0,0,5,0" Grid.Column="3"/>
+				<TextBox x:Name="_s" TextWrapping="Wrap" Text="0.0" Grid.Row="1" Margin="0,0,5,0" Grid.Column="4"/>
+				<TextBox x:Name="_temp" TextWrapping="Wrap" Text="0.0" Grid.Row="1" Grid.Column="5"/>
+			</Grid>
+		</GroupBox>
+		<Grid Grid.Row="4">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.333*"/>
+				<ColumnDefinition Width="0.256*"/>
+				<ColumnDefinition Width="0.411*"/>
+			</Grid.ColumnDefinitions>
+			<Button Content="Возврат в главное окно" VerticalAlignment="Center" Height="54" Margin="5,0"/>
+			<Button Content="Справка" VerticalAlignment="Center" Height="54" Margin="5,0" Grid.Column="1"/>
+			<Button Content="Переход к динамической модели OxyRun" VerticalAlignment="Center" Height="54" Margin="5,0" Grid.Column="2" Padding="5,1"/>
+		</Grid>
+	</Grid>
+</Page>
