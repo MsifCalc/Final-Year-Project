@@ -1,4 +1,3 @@
-MeltoxygenCalculator
+Final Year Project
 ====================
-
-Тренажер "Кислородно-конвертерный процесс". Модуль расчета шихты.
+Application for solving the charge for the basic oxygen steel-making process
